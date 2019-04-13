@@ -1,0 +1,16 @@
+.full-width-table {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+
+#filter{  font-size: 14px;
+  width: 100%;
+  height: 20%;
+}
+ th {
+  width: 0.4px;
+  font-size: 100%;
+}
+
