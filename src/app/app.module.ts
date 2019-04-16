@@ -15,13 +15,24 @@ import { MandataireService } from './mandataire.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableComponent } from './data-table/data-table.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { LoginService } from './login.service';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnoncesComponent,
     MandataireComponent,
-    DataTableComponent
+    DataTableComponent,
+    AuthentificationComponent,
+    NavbarComponent,
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +44,11 @@ import { DataTableComponent } from './data-table/data-table.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    FormsModule,
+
 
   ],
-  providers: [AnnoncesService, MandataireService],
+  providers: [AnnoncesService, MandataireService,LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

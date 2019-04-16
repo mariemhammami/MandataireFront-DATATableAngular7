@@ -2,7 +2,10 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 import { MatPaginator, MatSort,MatTableDataSource } from '@angular/material';
 import { DataTableDataSource } from './data-table-datasource';
 import { AnnoncesService } from '../annonces.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { LoginService } from '../login.service';
+import { AuthGuard } from '../auth.guard';
+
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
@@ -16,7 +19,7 @@ export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'annonce_id', 'date_jugement', 'siren', 'commentaires', 'dep', 'created_at', 'mandataires_tests'];
   dataSource: MatTableDataSource<any>;
 
-  constructor(private annonces: AnnoncesService, private route: Router) { }
+  constructor(private annonces: AnnoncesService, private route: Router, private activeroute: ActivatedRoute) { }
 
   ngOnInit() {
     this.annonces.getAnnonces().subscribe(

@@ -1,0 +1,13 @@
+
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+
+
+  <ul class="navbar-nav">
+
+    <li class="nav-item"><a  *ngIf="!auth.loggedIn()" [routerLink]="['/']" routerLinkActive="router-link-active" ><span ><img src="../../assets/images/enter.png"   style="height:30px; width:35px;"></span>Login</a></li>
+    <li class="nav-item"><a  *ngIf="!auth.loggedIn()" [routerLink]="['/registration']" routerLinkActive="router-link-active" ><span><img src="../../assets/images/smartphone.png"   style="height:30px; width:37px; position: relative;"></span>Register</a></li>
+    <li class="nav-item"> <a  *ngIf="auth.loggedIn()"  (click)="auth.logoutUser()"><span ><img src="../../assets/images/exit.png"   style="height:30px; width:30px;" [routerLink]="['/logout']" routerLinkActive="router-link-active" ></span>Logaut</a></li>
+
+</ul>
+</nav>
+<router-outlet></router-outlet>
